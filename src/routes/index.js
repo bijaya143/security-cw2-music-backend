@@ -9,6 +9,7 @@ const { userRouter } = require("./userRoute");
 const { songRouter } = require("./songRoute");
 const { userFavoriteRouter } = require("./userFavoriteRoute");
 const { userPlaylistRouter } = require("./userPlaylistRoute");
+const { subscriptionRouter } = require("./subscriptionRoute");
 
 const router = Router();
 
@@ -21,6 +22,7 @@ router.use("/user", userRouter);
 router.use("/song", songRouter);
 router.use("/user/favorite", userFavoriteRouter);
 router.use("/user/playlist", userPlaylistRouter);
+router.use("/subscription", subscriptionRouter);
 
 module.exports = {
   router,

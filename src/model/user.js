@@ -15,6 +15,7 @@ const collectionSchema = new Schema(
     dob: { type: String, required: false },
     gender: { type: String, required: false },
     imageUrl: { type: String, required: false },
+    isPaid: { type: Boolean, required: false, default: false },
   })
 );
 

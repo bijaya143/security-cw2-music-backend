@@ -148,9 +148,29 @@ const removeNullUndefined = async (obj) => {
   return obj;
 };
 
+const makeUserPremium = async (req, res) => {
+  const user = await getUser(req.userId); // Validation
+  if (!user) {
+    return res.json({
+      success: false,
+      data: {
+        message: "User does not exist.",
+      },
+    });
+  }
+  await update(req.userId, { isPaid: true });
+  return res.status(201).json({
+    success: true,
+    data: {
+      message: "User has been made premium",
+    },
+  });
+};
+
 module.exports = {
   me,
   updateMe,
   updatePassword,
   getUsers,
+  makeUserPremium,
 };
