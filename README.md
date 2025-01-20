@@ -1,4 +1,4 @@
-## Sangeet Backend
+## Harmonica Backend
 
 ## Table of contents
 
