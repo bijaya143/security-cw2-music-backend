@@ -7,6 +7,7 @@ const collectionName = "users";
 const collectionSchema = new Schema(
   SchemaWithBaseTime({
     email: { type: String, required: true, unique: true },
+    phone: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     userType: { type: String, default: "customer" },
     genres: { type: [{ id: String, name: String }], required: false },
@@ -16,6 +17,7 @@ const collectionSchema = new Schema(
     gender: { type: String, required: false },
     imageUrl: { type: String, required: false },
     isPaid: { type: Boolean, required: false, default: false },
+    otp: { type: String, required: false },
   })
 );
 

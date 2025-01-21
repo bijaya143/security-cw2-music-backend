@@ -1,6 +1,7 @@
 const { fetch, create } = require("../model/user");
 const { sign } = require("../service/jwtService");
 const { compare, hash } = require("../service/passwordService");
+const { sendSMS } = require("../service/smsService");
 
 const login = async (req, res, next) => {
   try {
@@ -34,12 +35,22 @@ const login = async (req, res, next) => {
 const register = async (req, res, next) => {
   try {
     const hashedPassword = await hash(req.body.password);
-    const user = await create({ ...req.body, password: hashedPassword });
+    const otp = await generateOtp();
+    const user = await create({
+      ...req.body,
+      password: hashedPassword,
+      otp: otp,
+    });
     const tokenDetails = {
       id: user._id,
       email: user.email,
+      phone: user.phone,
       userType: user.userType,
     };
+
+    // sendSMS(user.phone, `You OTP is ${otp}`)
+    //   .then((res) => {})
+    //   .catch((error) => {});
     const accessToken = await sign(tokenDetails, false);
     const data = { accessToken };
     return res.json({ success: true, data });
@@ -76,6 +87,15 @@ const oauth = async (req, res, next) => {
     const data = { accessToken };
     return res.json({ success: true, data });
   }
+};
+
+const generateOtp = async (length = 6) => {
+  const digits = "0123456789";
+  let otp = "";
+  for (let i = 0; i < length; i++) {
+    otp += digits[Math.floor(Math.random() * 10)];
+  }
+  return otp;
 };
 
 module.exports = {

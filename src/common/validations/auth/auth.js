@@ -4,6 +4,7 @@ const createSchema = Joi.object({
   firstName: Joi.string(),
   lastName: Joi.string(),
   email: Joi.string().required(),
+  phone: Joi.string(),
   password: Joi.string().required(),
 });
 
