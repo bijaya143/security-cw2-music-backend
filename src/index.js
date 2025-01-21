@@ -10,6 +10,7 @@ const { router } = require("./routes/index");
 const errorHandler = require("errorhandler");
 const fileUpload = require("express-fileupload");
 const path = require("path");
+const { default: rateLimit } = require("express-rate-limit");
 
 const app = express();
 
@@ -26,6 +27,16 @@ app.use(
   })
 );
 app.use(compression());
+
+const limiter = rateLimit({
+  windowMs: 1 * 60 * 1000, // 15 minutes
+  limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
+  standardHeaders: "draft-8", // draft-6: `RateLimit-*` headers; draft-7 & draft-8: combined `RateLimit` header
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers.
+});
+
+// Apply the rate limiting middleware to all requests.
+app.use(limiter);
 
 // Use node like promise for mongoose
 mongoose.Promise = global.Promise;
