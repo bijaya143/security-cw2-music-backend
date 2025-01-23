@@ -5,6 +5,7 @@ const { updateValidator } = require("../common/validations/user/userValidator");
 
 const userRouter = Router();
 
+// User Profile Routes
 userRouter.patch("/me", authorize, updateValidator, userController.updateMe);
 userRouter.patch(
   "/change-password",
