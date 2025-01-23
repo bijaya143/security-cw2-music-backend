@@ -34,7 +34,7 @@ const createSong = async (req, res, next) => {
     // Image record
     const imagePath = await uploadFileToLocal(req.files.image, filePrefix); // Image Path
     const imageKey = `/api/${imagePath}`;
-    const audioPath = await uploadFileToLocal(req.files.audio, filePrefix);
+    const audioPath = await uploadFileToLocal(req.files.audio, filePrefix); // Audio Path
     const audioKey = `/api/${audioPath}`;
     const song = await storeSong(title, artistId, genre, imageKey, audioKey);
     return res.json({
