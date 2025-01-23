@@ -96,7 +96,7 @@ const updatePassword = async (req, res, next) => {
       },
     });
   }
-  const hashedPassword = await hash(req.body.newPassword);
+  const hashedPassword = await hash(req.body.newPassword); // Password encryption
   try {
     await update(req.userId, { password: hashedPassword });
     return res.json({
