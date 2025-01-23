@@ -13,6 +13,7 @@ const {
 
 const userPlaylistRouter = Router();
 
+// User specific playlist routes
 userPlaylistRouter.post(
   "",
   authorize,
