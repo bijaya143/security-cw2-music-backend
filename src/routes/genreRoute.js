@@ -10,6 +10,7 @@ const {
 } = require("../common/validations/pagination/paginationValidator");
 const genreRouter = Router();
 
+// Admin Protected Genre Routes
 genreRouter.post(
   "",
   adminAuthorize,
