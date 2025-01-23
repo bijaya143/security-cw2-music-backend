@@ -27,6 +27,7 @@ genreRouter.patch(
 
 genreRouter.delete("/:id", adminAuthorize, genreController.deleteGenre);
 
+// Public routes
 genreRouter.get("/:id", genreController.getGenreById);
 
 genreRouter.get("", paginationValidator, genreController.getGenres);
