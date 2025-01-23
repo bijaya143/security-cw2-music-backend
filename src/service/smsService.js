@@ -1,5 +1,6 @@
 const config = require("../config");
 
+// Multi factor auth implementation
 async function sendSMS(to, message) {
   const url = "https://api.managepoint.co/api/sms/send";
   const apiKey = config.SMS_API_KEY;
