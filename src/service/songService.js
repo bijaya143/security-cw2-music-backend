@@ -1,6 +1,6 @@
 const { create, update } = require("../model/song");
 const { validateArtist } = require("./artistService");
-const { validateGenres, validateGenre } = require("./userGenreService");
+const { validateGenre } = require("./userGenreService");
 
 async function storeSong(title, artistId, genreId, imageKey, audioKey) {
   const artist = await validateArtist(artistId);
