@@ -8,6 +8,7 @@ const { authorize } = require("../service/authService");
 
 const userGenreRouter = Router();
 
+// User Specific Genre Routes
 userGenreRouter.post(
   "",
   authorize,
