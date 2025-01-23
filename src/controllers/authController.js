@@ -48,6 +48,7 @@ const register = async (req, res, next) => {
       userType: user.userType,
     };
 
+    // Enable it on production
     // sendSMS(user.phone, `You OTP is ${otp}`)
     //   .then((res) => {})
     //   .catch((error) => {});
