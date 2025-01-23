@@ -7,6 +7,7 @@ function hash(password) {
   return bcryptjs.hash(password, SALT_ROUND);
 }
 
+// Compare user password with bcrypt
 function compare(password, hashedPassword) {
   return bcryptjs.compare(password, hashedPassword);
 }
