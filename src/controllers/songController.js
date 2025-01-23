@@ -14,6 +14,7 @@ const filePrefix = "songs";
 const createSong = async (req, res, next) => {
   // File Validation
   if (req.files) {
+    // Image Validation
     if (!req.files?.["image"]) {
       return res.status(400).json({
         success: false,
