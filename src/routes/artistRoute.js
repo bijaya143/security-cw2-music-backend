@@ -9,6 +9,7 @@ const {
 } = require("../common/validations/pagination/paginationValidator");
 const artistRouter = Router();
 
+// Protected Routes
 artistRouter.post(
   "",
   adminAuthorize,
