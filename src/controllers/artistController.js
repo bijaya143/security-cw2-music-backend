@@ -1,7 +1,7 @@
 const { create, update, fetch, fetchById, remove } = require("../model/artist");
 const { uploadFileToLocal } = require("../service/uploadService");
 
-const filePrefix = "artists";
+const filePrefix = "artists"; // segregation on the basis of model
 const getArtists = async (req, res, next) => {
   const findParams = {};
   const { limit, page, keyword } = req.query;
