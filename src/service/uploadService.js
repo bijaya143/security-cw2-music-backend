@@ -26,7 +26,7 @@ async function uploadFileToLocal(file, filePrefix) {
   )}`;
 
   try {
-    file.mv(uploadPath);
+    file.mv(uploadPath); // Move file to the local directory
     return uploadPath;
   } catch (error) {
     return error;
