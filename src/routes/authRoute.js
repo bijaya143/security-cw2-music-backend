@@ -8,6 +8,7 @@ const authController = require("../controllers/authController");
 
 const authRouter = Router();
 
+// Authentication Routes
 authRouter.post("/login", loginValidator, authController.login);
 
 authRouter.post("/register", createValidator, authController.register);
