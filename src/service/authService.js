@@ -1,5 +1,6 @@
 const { verify } = require("./jwtService");
 
+// User Auth Middleware
 async function authorize(request, response, next) {
   try {
     if (!request) throw new Error("Not Authorized.");
