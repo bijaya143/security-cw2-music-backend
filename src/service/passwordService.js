@@ -2,6 +2,7 @@ const bcryptjs = require("bcryptjs");
 
 const SALT_ROUND = 10;
 
+// Hash user password with salt
 function hash(password) {
   return bcryptjs.hash(password, SALT_ROUND);
 }
