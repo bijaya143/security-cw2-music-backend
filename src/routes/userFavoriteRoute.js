@@ -11,6 +11,7 @@ const {
 
 const userFavoriteRouter = Router();
 
+// User Favorite songs routes
 userFavoriteRouter.post(
   "",
   authorize,
