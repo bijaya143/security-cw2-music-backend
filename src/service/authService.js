@@ -24,6 +24,7 @@ async function authorize(request, response, next) {
   }
 }
 
+// Admin Auth Middleware
 async function adminAuthorize(request, response, next) {
   try {
     if (!request) throw new Error("Not Authorized.");
