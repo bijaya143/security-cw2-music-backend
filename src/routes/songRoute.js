@@ -13,6 +13,8 @@ songRouter.patch("/:id", adminAuthorize, songController.updateSong);
 
 songRouter.delete("/:id", adminAuthorize, songController.deleteSong);
 
+// User Protected routes
+
 songRouter.get("/:id", authorize, songController.getSongById);
 
 songRouter.get("", authorize, paginationValidator, songController.getSongs);
