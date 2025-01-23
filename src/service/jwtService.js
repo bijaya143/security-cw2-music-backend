@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 
 const config = require("../config");
 
+// Sign JWT with Token Expiry
 async function sign(params, expire) {
   let tokenExpiry = 86400; // 1 day
   if (!expire) tokenExpiry = 604800; // 7 day
