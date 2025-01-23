@@ -65,6 +65,7 @@ const updateSong = async (req, res, next) => {
       imageUrl = `/api/${imagePath}`;
     }
     if (req.files?.["audio"]) {
+      // Audio record
       const audioPath = await uploadFileToLocal(req.files.audio, filePrefix);
       audioUrl = `/api/${audioPath}`;
     }
