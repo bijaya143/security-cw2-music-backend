@@ -16,7 +16,7 @@ const me = async (req, res, next) => {
   }
   // Excluding Password
   const userObject = user.toObject();
-  delete userObject["password"];
+  delete userObject["password"]; // Hide sensitive data
   return res.json({
     success: true,
     data: { userObject },
