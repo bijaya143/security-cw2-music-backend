@@ -10,6 +10,7 @@ async function sign(params, expire) {
   return jwt.sign(params, config.JWT_KEY, { expiresIn: tokenExpiry });
 }
 
+// Verify JWT
 async function verify(token) {
   return jwt.verify(token, config.JWT_KEY);
 }
