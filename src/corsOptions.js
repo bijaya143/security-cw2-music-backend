@@ -1,6 +1,6 @@
 const config = require("./config");
 
-// whote list domains for access
+// white list domains for access
 let whitelist = ["http://localhost:3000"];
 if (config.ENV === "dev") {
   whitelist = [];

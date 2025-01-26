@@ -69,7 +69,7 @@ app.use(errorHandler());
 app.use(middleware.notFound);
 app.use(middleware.errorHandler);
 
-app.listen(config.PORT, () => {
+app.listen(config.PORT, "0.0.0.0", () => {
   console.log(`Listening: http://localhost:${config.PORT}`);
 });
 
