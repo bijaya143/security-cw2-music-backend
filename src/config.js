@@ -19,4 +19,5 @@ module.exports = {
   FILE_PATH: process.env.FILE_PATH || "",
 
   SMS_API_KEY: process.env.SMS_API_KEY || "",
+  SESSION_SECRET: process.env.SESSION_SECRET || "",
 };

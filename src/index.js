@@ -11,8 +11,22 @@ const errorHandler = require("errorhandler");
 const fileUpload = require("express-fileupload");
 const path = require("path");
 const { default: rateLimit } = require("express-rate-limit");
+const session = require("express-session");
 
 const app = express();
+
+app.use(
+  session({
+    secret: config.SESSION_SECRET,
+    resave: false, // Prevents session from being saved repeatedly
+    saveUninitialized: false, // Only saves sessions that have been modified
+    cookie: {
+      secure: true, // Set to `true` if using HTTPS
+      httpOnly: true, // Prevents JavaScript access to cookies
+      maxAge: 900000, // Session expiry in milliseconds (e.g., 15 minutes)
+    },
+  })
+);
 
 const corsOptions = {
   origin: true,
