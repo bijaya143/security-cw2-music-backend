@@ -27,6 +27,11 @@ const login = async (req, res, next) => {
 
     const data = { accessToken };
 
+    res.cookie("sessionId", "abc123", {
+      httpOnly: true, // Prevents JavaScript access
+      secure: true, // Ensures cookies are sent only over HTTPS
+      sameSite: "strict", // Prevents CSRF attacks
+    });
     return res.json({ success: true, data });
   } catch (error) {
     return res.status(401).json({ success: false, data: error.message });
